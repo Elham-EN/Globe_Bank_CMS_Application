@@ -2,7 +2,7 @@
 
 <?php 
   $subject_result = find_all_subject(); //Perform database query
-  /**
+  /**Method_1
    * $count = mysqli_num_rows($subject_result);
    * for ($i = 0; $i < $count; $i++) {
    *     $subject = mysqli_fetch_assoc($subject_result);
@@ -10,10 +10,6 @@
    * }
    */
 
-   //Use returned data (if any)
-   while ($subject = mysqli_fetch_assoc($subject_result)) {
-       echo $subject['menu_name'] . "<br />";
-   }
   //Array contains another array
   $subjects = [
     ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Globe Bank'],
@@ -41,7 +37,7 @@
                    <th>&nbsp;</th>
                    <th>&nbsp;</th>
                </tr>
-               <?php foreach ($subjects as $subject) { ?>
+               <?php while ($subject = mysqli_fetch_assoc($subject_result)) { ?>
                     <tr>
                         <td><?php echo $subject['id']; ?></td>
                         <td><?php echo $subject['position']; ?></td>
