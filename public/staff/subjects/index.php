@@ -1,7 +1,7 @@
 <?php require_once('../../../private/initialize.php'); ?>
 
 <?php 
-  $subject_result = find_all_subject(); //Perform database query
+  $subject_result = find_all_subjects(); //Perform database query
   /**Method_1
    * $count = mysqli_num_rows($subject_result);
    * for ($i = 0; $i < $count; $i++) {
@@ -10,13 +10,7 @@
    * }
    */
 
-  //Array contains another array
-  $subjects = [
-    ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Globe Bank'],
-    ['id' => '2', 'position' => '2', 'visible' => '1', 'menu_name' => 'Consumer'],
-    ['id' => '3', 'position' => '3', 'visible' => '1', 'menu_name' => 'Small Business'],
-    ['id' => '4', 'position' => '4', 'visible' => '1', 'menu_name' => 'Commercial'],
-  ];
+
 ?>
 
 <?php $page_title = 'Subjects';?>

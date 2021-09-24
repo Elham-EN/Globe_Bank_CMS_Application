@@ -1,12 +1,6 @@
 <?php require_once('../../../private/initialize.php'); ?>
 
-<?php $pages = [
-    ['id' => '1', 'position' => '1', 'visible' => '1', 'menu_name' => 'About Globe Bank'],
-    ['id' => '2', 'position' => '2', 'visible' => '1', 'menu_name' => 'History'],
-    ['id' => '3', 'position' => '3', 'visible' => '1', 'menu_name' => 'Leadership'],
-    ['id' => '4', 'position' => '4', 'visible' => '1', 'menu_name' => 'Contact Us'],
-  ];   
-?>
+<?php $page_result = find_all_pages(); ?>
 
 <?php $page_title = 'Page';?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
@@ -19,6 +13,7 @@
             <table class="list">
                <tr>
                    <th>ID</th>
+                   <th>Subject ID</th>
                    <th>Position</th>
                    <th>Visible</th>
                    <th>Name</th>
@@ -26,9 +21,10 @@
                    <th>&nbsp;</th>
                    <th>&nbsp;</th>
                </tr>
-               <?php foreach ($pages as $page) { ?>
+               <?php while ($page = mysqli_fetch_assoc($page_result)) { ?>
                 <tr>
                     <td><?php echo $page['id']; ?></td>
+                    <td><?php echo $page['subject_id']; ?></td>
                     <td><?php echo $page['position']; ?></td>
                     <td><?php echo $page['visible'] == 1 ? 'true' : 'false'; ?></td>
                     <td><?php echo $page['menu_name']; ?></td>
@@ -47,6 +43,7 @@
                 </tr>
                <?php } ?>
             </table>
+            <?php mysqli_free_result($page_result); ?>
         </div>
     </div>
 <?php include(SHARED_PATH . '/staff_footer.php'); ?>
