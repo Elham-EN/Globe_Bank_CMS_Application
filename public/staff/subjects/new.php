@@ -11,6 +11,15 @@
     *       redirect_to(url_for('/staff/subjects/index.php'));
     *   } 
      */
+    $subject_result = find_all_subjects(); //Select statement return results
+    // Plus one extra for the record we're creating now.
+    $subject_count = mysqli_num_rows($subject_result) + 1; //get number of records
+    mysqli_free_result($subject_result);
+    $subject = []; //Empty associative array
+    //By default, it to be in the highest position automatically. For example if we
+    //have five records, it will have a choice one through six and it will default
+    //in position six automatically 
+    $subject['position'] = $subject_count;
 ?>
 
 <?php $page_title = 'Create Subject'; ?>
@@ -30,7 +39,17 @@
                     <dt>Position</dt>
                     <dd>
                         <select name="position">
-                            <option value="1">1</option>
+                        <?php
+                            //List of positions is based on how many subjects are in the database
+                            for ($i = 0; $i <= $subject_count; $i++) {
+                                echo "<option value=\"{$i}\"";
+                                //If the position is equal to the current value
+                                if ($subject['position'] == $i){
+                                    echo " selected"; //mark as selected
+                                }
+                                echo ">{$i}</option>";
+                            } 
+                        ?>
                         </select>
                     </dd>
                 </dl>

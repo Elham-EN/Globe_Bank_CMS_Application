@@ -1,7 +1,8 @@
 <?php require_once('../../../private/initialize.php'); ?>
 
 <?php 
-    $id = isset($_GET['id']) ? $_GET['id'] : '1'; //if not set, give default value of 1
+    //$id = isset($_GET['id']) ? $_GET['id'] : null; //if not set, give default value of 1
+    $id = $_GET['id'] ?? '1'; // PHP > 7.0
     $subject = find_subject_by_id($id);
 ?>
 
