@@ -49,7 +49,11 @@
                                 Edit
                             </a>
                         </td>
-                        <td><a class="action" href="">Delete</a></td>
+                        <td><a class="action" href="
+                                <?php echo url_for('/staff/subjects/delete.php?id=' . $subject['id']);?>">
+                                Delete
+                            </a>
+                        </td>
                     </tr>
                <?php } ?>
            </table>

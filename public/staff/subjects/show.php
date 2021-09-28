@@ -15,19 +15,27 @@
         </a>
         <br /><br />
         <div class="subject show">
-            <h1>Subject: <?php echo htmlspecialchars($subject['menu_name']); ?></h1>
+            <h1>
+                Subject: <?php echo htmlspecialchars($subject['menu_name']); ?>
+            </h1>
             <div class="attributes">
                 <dl>
                     <dt>Menu Name</dt>
-                    <dd> <?php echo htmlspecialchars($subject['menu_name']); ?></dd>
+                    <dd> 
+                        <?php echo htmlspecialchars($subject['menu_name']); ?>
+                    </dd>
                 </dl>
                 <dl>
                     <dt>Position</dt>
-                    <dd> <?php echo htmlspecialchars($subject['position']); ?></dd>
+                    <dd> 
+                        <?php echo htmlspecialchars($subject['position']); ?>
+                    </dd>
                 </dl>
                 <dl>
                     <dt>Visible</dt>
-                    <dd> <?php echo $subject['visible'] == '1' ? 'true' : 'false'; ?></dd>
+                    <dd> 
+                        <?php echo $subject['visible'] == '1' ? 'true' : 'false'; ?>
+                    </dd>
                 </dl>
             </div>
         </div>

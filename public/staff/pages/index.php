@@ -22,9 +22,10 @@
                    <th>&nbsp;</th>
                </tr>
                <?php while ($page = mysqli_fetch_assoc($page_result)) { ?>
+                <?php $subject = find_subject_by_id($page['subject_id']); ?>
                 <tr>
                     <td><?php echo $page['id']; ?></td>
-                    <td><?php echo $page['subject_id']; ?></td>
+                    <td><?php echo htmlspecialchars($subject['menu_name']); ?></td>
                     <td><?php echo $page['position']; ?></td>
                     <td><?php echo $page['visible'] == 1 ? 'true' : 'false'; ?></td>
                     <td><?php echo $page['menu_name']; ?></td>
@@ -39,7 +40,11 @@
                             Edit
                         </a>
                     </td>
-                    <td><a class="action" href="">Delete</a></td>
+                    <td>
+                        <a class="action" href="<?php echo url_for('/staff/pages/delete.php?id=' . $page['id']);?>">
+                            Delete
+                        </a>
+                    </td>
                 </tr>
                <?php } ?>
             </table>
